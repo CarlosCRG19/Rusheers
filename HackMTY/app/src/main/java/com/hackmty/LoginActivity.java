@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity
 
     private void goRoomsActivity()
     {
-        Intent i = new Intent(LoginActivity.this, RoomsActivity.class);
+        Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
         finish(); // so user cannot swipe back to login screen
     }
