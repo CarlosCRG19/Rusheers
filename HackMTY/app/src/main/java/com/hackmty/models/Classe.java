@@ -1,10 +1,13 @@
 package com.hackmty.models;
 
 
-import java.util.List; 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
+import java.util.List;
 
 @ParseClassName("Class")
-public class Class extends ParseObject {
+public class Classe extends ParseObject {
 
     public static final String KEY_NAME = "className";
     public static final String KEY_PROFESSORS = "professors";
