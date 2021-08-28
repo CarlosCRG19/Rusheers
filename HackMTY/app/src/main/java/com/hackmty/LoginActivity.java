@@ -18,6 +18,7 @@ import com.parse.SignUpCallback;
 
 public class LoginActivity extends AppCompatActivity
 {
+
     public static final String TAG = "LoginActivity";
     EditText etUsername, etPassword;
     TextView tvTitle;
