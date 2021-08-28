@@ -3,6 +3,8 @@ package com.hackmty;
 import android.app.Application;
 
 import com.hackmty.models.Classe;
+import com.hackmty.models.Message;
+import com.hackmty.models.Room;
 import com.parse.BuildConfig;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -12,6 +14,8 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ParseObject.registerSubclass(Classe.class);
+        ParseObject.registerSubclass(Room.class);
+        ParseObject.registerSubclass(Message.class);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("1FTMAcVDP8yXabW7p9ZRUSNt1lhLh1W0Wy7r1yFT")
                 .clientKey("G1YjKYl9FwWipzjxqFIThkcgIERLVFBM4wQEtagJ")
