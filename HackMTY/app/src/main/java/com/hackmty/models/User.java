@@ -11,4 +11,5 @@ public class User {
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_PFP = "profilePic";
     public static final String KEY_COLOR = "color";
+
 }
