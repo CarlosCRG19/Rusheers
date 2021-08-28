@@ -1,4 +1,10 @@
 package com.hackmty.fragments;
 
-public class ClassesFragment {
+import androidx.fragment.app.Fragment;
+
+public class ClassesFragment extends Fragment {
+
+    // Empty constructor
+    public ClassesFragment(){};
+
 }
