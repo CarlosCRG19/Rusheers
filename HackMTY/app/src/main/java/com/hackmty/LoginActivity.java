@@ -21,8 +21,8 @@ public class LoginActivity extends AppCompatActivity
 
     public static final String TAG = "LoginActivity";
     EditText etUsername, etPassword;
-    TextView tvTitle;
-    Button btnLogin, btnSignup;
+    TextView tvSignUp;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,11 +34,10 @@ public class LoginActivity extends AppCompatActivity
         if (ParseUser.getCurrentUser() != null)
             goRoomsActivity();
 
-        tvTitle = findViewById(R.id.tvTitle);
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
+        tvSignUp = findViewById(R.id.tvSignUp);
         btnLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,12 +47,12 @@ public class LoginActivity extends AppCompatActivity
                 loginUser(etUsername.getText().toString(), etPassword.getText().toString());
             }
         });
-        btnSignup.setOnClickListener(new View.OnClickListener()
+        tvSignUp.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+                Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(i);
                 finish();
             }
