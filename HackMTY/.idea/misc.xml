@@ -3,16 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/round.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_login.xml" value="0.4173913181932306" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_sign_up.xml" value="0.3124287343215507" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_login.xml" value="0.264" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
