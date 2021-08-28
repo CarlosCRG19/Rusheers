@@ -118,9 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
                     count++;
                 if (validateField(tilEmail, etEmail))
                     count++;
-                if (validateField(tilDescription, etDescription))
-                    count++;
-                if (count == 5) //If all the fields were filled...
+                if (count == 4) //If all the fields were filled...
                     preCreateUser();
                 else {
                     //If not all the fields were filled, an error dialog is shown.
