@@ -25,4 +25,5 @@ public class Classe extends ParseObject {
 
     public String getDescription() { return getString(KEY_DESCRIPTION); }
     public void setDescription(String description) { put(KEY_DESCRIPTION, description); }
+
 }
