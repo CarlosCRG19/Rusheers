@@ -2,6 +2,7 @@ package com.hackmty.models;
 
 
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -21,6 +22,7 @@ public class ClassRoom extends ParseObject
     public static final String KEY_TAGS = "tags";
     public static final String KEY_USERS = "users";
     public static final String KEY_CLASS = "classname";
+    public static final String KEY_NOTES = "notes";
 
     public String getId() { return getString(KEY_ID); }
 
@@ -57,5 +59,10 @@ public class ClassRoom extends ParseObject
 
     // Returns a list of users that are members of this room
     public List<ParseUser> getMembers() {return (List<ParseUser>) get("users"); }
+
+    // Returs the list of notes for the room
+    public List<ParseFile> getNotes() { return (List<ParseFile>) get(KEY_NOTES); }
+
+    public void addNote(ParseFile notePhoto) { add(KEY_NOTES, notePhoto); }
 }
 

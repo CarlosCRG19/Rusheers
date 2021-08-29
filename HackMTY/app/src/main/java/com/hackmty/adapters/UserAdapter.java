@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackmty.Controllers.ImagesController;
 import com.hackmty.R;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 
@@ -87,9 +88,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             user = userToBind;
 
             // Get profile picture
-            //ParseFile profileImage = (ParseFile) user.get("profilePic");
+            ParseFile profileImage = null;
+            try {
+                profileImage = (ParseFile) user.fetchIfNeeded().get("profilePic");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             // Load Profile Picture using static method
-            //ImagesController.loadCircleImage(context, profileImage, ivUserImage);
+            ImagesController.loadCircleImage(context, profileImage, ivUserImage);
 
         }
     }

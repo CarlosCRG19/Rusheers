@@ -209,6 +209,7 @@ public class TimerFragment extends Fragment {
         return startTimeInMillis;
     }
 
+
     /**
      * Close the fragment
      */

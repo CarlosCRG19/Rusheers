@@ -29,9 +29,8 @@ public class InRoomFragment2 extends Fragment {
 
     // VIEWS
     private TextView tvRoomName, tvDescription, tvRoomUrl, tvMembers;
-    private FloatingActionButton fbTimer;
+    private FloatingActionButton fbTimer, fbNotes, fbChat;
     private RecyclerView rvMembers;
-    private FloatingActionButton fbChat;
     private FrameLayout infoContainer;
 
     // Variables for members RV
@@ -65,13 +64,14 @@ public class InRoomFragment2 extends Fragment {
         setViews(view);
         // Populate view
         populateViews();
-        setUpOnClickListeners();
 
         // RV setup
         members = room.getMembers();
         adapter = new UserAdapter(getContext(), members);
         rvMembers.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvMembers.setAdapter(adapter);
+
+        setListeners();
     }
 
     // VIEW METHODS
@@ -84,8 +84,9 @@ public class InRoomFragment2 extends Fragment {
         tvDescription = view.findViewById(R.id.tvDescription);
         // Members recycler view
         rvMembers = view.findViewById(R.id.rvMembers);
-        fbChat = view.findViewById(R.id.fbChat);
         fbTimer = view.findViewById(R.id.fbTimer);
+        fbNotes = view.findViewById(R.id.fbNotes);
+        fbChat = view.findViewById(R.id.fbChat);
         infoContainer = view.findViewById(R.id.optionContainer);
     }
 
@@ -99,11 +100,21 @@ public class InRoomFragment2 extends Fragment {
         tvMembers.setText(membersSize);
     }
 
-    private void setUpOnClickListeners(){
-        fbChat.setOnClickListener(new View.OnClickListener() {
+    private void setListeners() {
+        fbNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openChat();
+                // Create bundle to pass room
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(ClassRoom.TAG, room);
+                // Create new notes fragment
+                NotesFragment fragment = new NotesFragment();
+                fragment.setArguments(bundle);
+                // Make transaction
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flContainer, fragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
         fbTimer.setOnClickListener(new View.OnClickListener() {
@@ -112,24 +123,29 @@ public class InRoomFragment2 extends Fragment {
                 infoContainer.setVisibility(View.VISIBLE);
                 TimerFragment timerFragment = new TimerFragment(room, getActivity());
 
-                getChildFragmentManager()
+                ((MainActivity)getContext())
+                        .getSupportFragmentManager()
                         .beginTransaction()
                         .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
-                        .replace(R.id.optionContainer, timerFragment)
+                        .add(R.id.flContainer, timerFragment)
+                        .addToBackStack(null)
                         .commit();
             }
         });
-    }
+        fbChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChatFragment chatFragment = ChatFragment.newInstance(room);
 
-    private void openChat(){
-        ChatFragment chatFragment = ChatFragment.newInstance(room);
-
-        ((MainActivity)getContext())
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.flContainer, chatFragment)
-                .addToBackStack(null)
-                .commit();
+                ((MainActivity)getContext())
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
+                        .add(R.id.flContainer, chatFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 }
 

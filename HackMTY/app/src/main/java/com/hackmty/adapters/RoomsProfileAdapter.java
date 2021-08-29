@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -18,9 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.hackmty.MainActivity;
 import com.hackmty.R;
-import com.hackmty.fragments.InRoomFragment;
 import com.hackmty.fragments.InRoomFragment2;
-import com.hackmty.fragments.RoomsFragment;
 import com.hackmty.models.ClassRoom;
 import com.parse.ParseFile;
 
