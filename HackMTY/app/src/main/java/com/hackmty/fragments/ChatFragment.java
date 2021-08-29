@@ -133,8 +133,6 @@ public class ChatFragment extends Fragment implements View.OnClickListener
             });
         });
 
-        TabLayout tabLayout = requireActivity().findViewById(R.id.tabLayout);
-        CircleIndicator3 indicator = requireActivity().findViewById(R.id.indicator);
         // keyboard listener: if up, disappear navbar
         KeyboardVisibilityEvent.setEventListener(requireActivity(), new KeyboardVisibilityEventListener()
         {
@@ -143,25 +141,21 @@ public class ChatFragment extends Fragment implements View.OnClickListener
             {
                 if (isOpen)
                 {
-                    tabLayout.setVisibility(View.GONE);
-                    indicator.setVisibility(View.GONE);
                     ViewGroup.LayoutParams rvParams = rvChat.getLayoutParams();
                     rvParams.height = rvChat.getHeight() - (2 * rlMessage.getHeight());
                     rvChat.setLayoutParams(rvParams);
 
-                    FrameLayout.LayoutParams rlParams = (FrameLayout.LayoutParams) rlMessage.getLayoutParams();
+                    RelativeLayout.LayoutParams rlParams = (RelativeLayout.LayoutParams) rlMessage.getLayoutParams();
                     rlParams.setMargins(0, 0, 0, etMessage.getHeight() + 10);
                     rlMessage.setLayoutParams(rlParams);
                 }
                 else
                 {
-                    tabLayout.setVisibility(View.VISIBLE);
-                    indicator.setVisibility(View.VISIBLE);
                     ViewGroup.LayoutParams rvParams = rvChat.getLayoutParams();
                     rvParams.height = rvChat.getHeight() + (int)(2.5 * rlMessage.getHeight());
                     rvChat.setLayoutParams(rvParams);
 
-                    FrameLayout.LayoutParams rlParams = (FrameLayout.LayoutParams) rlMessage.getLayoutParams();
+                    RelativeLayout.LayoutParams rlParams = (RelativeLayout.LayoutParams) rlMessage.getLayoutParams();
                     rlParams.setMargins(0, 0, 0, 2 * etMessage.getHeight() + 20);
                     rlMessage.setLayoutParams(rlParams);
                 }
