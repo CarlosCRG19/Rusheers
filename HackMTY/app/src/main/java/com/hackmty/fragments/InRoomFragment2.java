@@ -1,9 +1,11 @@
 package com.hackmty.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -21,13 +23,16 @@ import com.hackmty.models.ClassRoom;
 import com.parse.ParseUser;
 
 import java.util.List;
+import java.util.Timer;
 
 public class InRoomFragment2 extends Fragment {
 
     // VIEWS
     private TextView tvRoomName, tvDescription, tvRoomUrl, tvMembers;
+    private FloatingActionButton fbTimer;
     private RecyclerView rvMembers;
     private FloatingActionButton fbChat;
+    private FrameLayout infoContainer;
 
     // Variables for members RV
     private List<ParseUser> members;
@@ -68,6 +73,19 @@ public class InRoomFragment2 extends Fragment {
         rvMembers.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvMembers.setAdapter(adapter);
 
+        fbTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                infoContainer.setVisibility(View.VISIBLE);
+                TimerFragment timerFragment = new TimerFragment(room, getActivity());
+
+                getChildFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
+                        .replace(R.id.optionContainer, timerFragment)
+                        .commit();
+            }
+        });
     }
 
     // VIEW METHODS
@@ -81,6 +99,8 @@ public class InRoomFragment2 extends Fragment {
         // Members recycler view
         rvMembers = view.findViewById(R.id.rvMembers);
         fbChat = view.findViewById(R.id.fbChat);
+        fbTimer = view.findViewById(R.id.fbTimer);
+        infoContainer = view.findViewById(R.id.optionContainer);
     }
 
     private void populateViews() {

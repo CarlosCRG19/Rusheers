@@ -1,4 +1,3 @@
-
 package com.hackmty.fragments;
 
 import android.os.Bundle;
@@ -128,3 +127,4 @@ public class RoomsFragment extends Fragment {
         });
     }
 }
+
