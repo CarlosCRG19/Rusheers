@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,11 +42,31 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
+        private TextView tvRoomName;
+        private TextView tvHost;
+        private TextView tvChatEnable;
+        private TextView tvTags;
+        private TextView tvDescription;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            tvRoomName = itemView.findViewById(R.id.tvRoomName);
+            tvHost = itemView.findViewById(R.id.tvHost);
+            tvChatEnable = itemView.findViewById(R.id.tvChatEnable);
+            tvTags = itemView.findViewById(R.id.tvTags);
+            tvDescription = itemView.findViewById(R.id.tvDescription);
+
         }
 
         public void bind(ClassRoom classRoom){
+
+            tvRoomName.setText(classRoom.getName());
+            tvHost.setText(classRoom.getHost().getUsername());
+            String chatEnable = classRoom.getChatEnabled()?"enable":"unable";
+            tvChatEnable.setText(chatEnable);
+            tvTags.setText(classRoom.getTags().toString());
+            tvDescription.setText(classRoom.getDescription());
 
         }
     }

@@ -152,7 +152,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 room.setChatEnabled(chat);
                 room.setHost(currentUser);
                 room.setTags(tags);
-                room.setMusic(musicLink);
+                //room.setMusic(musicLink);
                 room.setZoom(zoomLink);
                 room.setUsers(new ArrayList<>());
                 room.saveInBackground(new SaveCallback()

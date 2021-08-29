@@ -3,6 +3,7 @@ package com.hackmty.adapters;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,19 +42,22 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ClassesAdapter.ViewHolder holder, int position) {
         // Bind class to vh
-        holder.bind(classes.get(position));
+        //holder.bind((Classe) classes.get(position));
+        Log.i("TEST", classes.get(position).getName());
     }
 
     @Override
     public int getItemCount() { return classes.size(); } // Size of classes array
 
+
+
     // OTHER METHODS
 
     // Add an entire array of classes
-    public void addAll(List<Classe> classesList) {
+    /*public void addAll(List<Classe> classesList) {
         classes.addAll(classesList);
         notifyDataSetChanged();
-    }
+    }*/
 
     // Remove all classes from the adapter
     public void clear() {
