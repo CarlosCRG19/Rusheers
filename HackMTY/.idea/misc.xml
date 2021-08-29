@@ -3,30 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/round.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/rounded_rectangle_edittext.xml" value="0.15885416666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/shape_curves_profile.xml" value="0.28958333333333336" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/font/.xml" value="0.17291666666666666" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_full_size_image.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_login.xml" value="0.4173913181932306" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_main.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_sign_up.xml" value="0.3124287343215507" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_classes.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_create_room_dialog.xml" value="0.2754782700075322" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_in_room.xml" value="0.2086956590966153" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_profile.xml" value="0.36533333333333334" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_rooms.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_class.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_item_image.xml" value="0.2653985507246377" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.14270833333333333" />
-        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/xml/prefs.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_chat_bubble.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/rounded_rectangle_edittext.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/rounded_rectangle_title.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/font/.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/font/open_sans.xml" value="0.16041666666666668" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_full_size_image.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_sign_up.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/dialog_edit.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_chat.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_chat_disabled.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_classes.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_create_room_dialog.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_in_room.xml" value="0.264" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_notes.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_profile.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_rooms.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_class.xml" value="0.4" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_item_image.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_room.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/member_layout.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/message_incoming.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/Documents/GitHub/Rusheers/HackMTY/app/src/main/res/layout/message_outgoing.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
