@@ -82,7 +82,7 @@ public class ProfileFragment extends Fragment {
         logoutBtn = view.findViewById(R.id.btnLogout);
 
         rvItems = view.findViewById(R.id.rvItems);
-        fabEditProfile = view.findViewById(R.id.fabEditProfile);
+        //fabEditProfile = view.findViewById(R.id.fabEditProfile);
         lottieLoadingItems = view.findViewById(R.id.lottieLoadingItems);
         //Assign values
         loadCircleImage(getContext(), user.getParseFile(User.KEY_PFP), ivProfileImage);
@@ -120,20 +120,24 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        if(user.equals(ParseUser.getCurrentUser()))
-            fabEditProfile.setVisibility(FloatingActionButton.VISIBLE);
-        else
-            fabEditProfile.setVisibility(FloatingActionButton.GONE);
+        if(user.equals(ParseUser.getCurrentUser())) {
+            //fabEditProfile.setVisibility(FloatingActionButton.VISIBLE);
+            logoutBtn.setVisibility(Button.VISIBLE);
+        }
+        else {
+            //fabEditProfile.setVisibility(FloatingActionButton.GONE);
+            logoutBtn.setVisibility(Button.GONE);
+        }
 
-        fabEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        fabEditProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //                AppCompatActivity activity = (AppCompatActivity) getContext();
 //                FragmentManager fm = activity.getSupportFragmentManager();
 //                EditProfileDialogFragment editProfileDialogFragment = EditProfileDialogFragment.newInstance(user);
 //                editProfileDialogFragment.show(fm,"fragment_rent_item");
-            }
-        });
+//            }
+//        });
     }
 
     /**

@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackmty.Controllers.ImagesController;
+import com.hackmty.MainActivity;
 import com.hackmty.R;
+import com.hackmty.fragments.ProfileFragment;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -66,7 +68,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
 
-    public class ViewHolder extends  RecyclerView.ViewHolder {
+    public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
 
         public static final String USER_TAG = "user"; // tag to pass user
 
@@ -77,6 +79,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             // Get views from layout
             ivUserImage = itemView.findViewById(R.id.ivUserImage);
             // Set click listener to go to the users profile
@@ -97,6 +100,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             // Load Profile Picture using static method
             ImagesController.loadCircleImage(context, profileImage, ivUserImage);
 
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            ProfileFragment profileFragment = new ProfileFragment(user);
+            ((MainActivity)context)
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer, profileFragment)
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 
