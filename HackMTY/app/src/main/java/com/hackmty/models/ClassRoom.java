@@ -10,6 +10,7 @@ import java.util.List;
 @ParseClassName("Room")
 public class ClassRoom extends ParseObject
 {
+    public static final String TAG = "ClassRoom";
     public static final String KEY_ID = "objectId";
     public static final String KEY_NAME = "roomname";
     public static final String KEY_HOST = "host";
@@ -53,5 +54,8 @@ public class ClassRoom extends ParseObject
     public void setClasse(SchoolClass classe){
         put(KEY_CLASS, classe);
     }
+
+    // Returns a list of users that are members of this room
+    public List<ParseUser> getMembers() {return (List<ParseUser>) get("users"); }
 }
 

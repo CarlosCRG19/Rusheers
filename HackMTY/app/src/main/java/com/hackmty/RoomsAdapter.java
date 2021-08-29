@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackmty.fragments.InRoomFragment;
+import com.hackmty.fragments.InRoomFragment2;
 import com.hackmty.models.ClassRoom;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -140,9 +141,9 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 });
         }
 
-        InRoomFragment inRoomFragment = new InRoomFragment(room);
+        InRoomFragment2 inRoomFragment = new InRoomFragment2();
         Bundle bundle = new Bundle();
-        bundle.putParcelable("room", room);
+        bundle.putParcelable(ClassRoom.TAG, room);
         inRoomFragment.setArguments(bundle);
         ((MainActivity)context)
                 .getSupportFragmentManager()
