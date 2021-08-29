@@ -86,7 +86,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 ClassRoom room = rooms.get(position);
                 Log.i(TAG,"onClick room: " + room.getName());
 
-                if (room.getPasscode().isEmpty()) {
+                if (room.getPasscode().isEmpty() || room.getUsers().contains(ParseUser.getCurrentUser())) {
                     openRoom(room);
                 }
                 else
