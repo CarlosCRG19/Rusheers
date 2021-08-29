@@ -15,12 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.material.tabs.TabLayout;
 import com.hackmty.R;
 import com.hackmty.adapters.ChatAdapter;
 import com.hackmty.models.ClassRoom;
@@ -33,16 +31,11 @@ import com.parse.SaveCallback;
 import com.parse.livequery.ParseLiveQueryClient;
 import com.parse.livequery.SubscriptionHandling;
 
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-
-import me.relex.circleindicator.CircleIndicator3;
-
 
 public class ChatFragment extends Fragment implements View.OnClickListener
 {
@@ -94,11 +87,9 @@ public class ChatFragment extends Fragment implements View.OnClickListener
 
         cvChat = view.findViewById(R.id.cvChat);
         tvTitle = view.findViewById(R.id.tvTitle);
-        //tvDisabled = view.findViewById(R.id.tvDisabled);
         etMessage = view.findViewById(R.id.etMessage);
         ibSend = view.findViewById(R.id.ibSend);
         ibSend.setOnClickListener(this);
-        RelativeLayout rlMessage = view.findViewById(R.id.rlMessage);
 
         messages = new ArrayList<>();
         rvChat = view.findViewById(R.id.rvChat);
@@ -131,35 +122,6 @@ public class ChatFragment extends Fragment implements View.OnClickListener
                     rvChat.smoothScrollToPosition(0);
                 }
             });
-        });
-
-        // keyboard listener: if up, disappear navbar
-        KeyboardVisibilityEvent.setEventListener(requireActivity(), new KeyboardVisibilityEventListener()
-        {
-            @Override
-            public void onVisibilityChanged(boolean isOpen)
-            {
-                if (isOpen)
-                {
-                    ViewGroup.LayoutParams rvParams = rvChat.getLayoutParams();
-                    rvParams.height = rvChat.getHeight() - (2 * rlMessage.getHeight());
-                    rvChat.setLayoutParams(rvParams);
-
-                    RelativeLayout.LayoutParams rlParams = (RelativeLayout.LayoutParams) rlMessage.getLayoutParams();
-                    rlParams.setMargins(0, 0, 0, etMessage.getHeight() + 10);
-                    rlMessage.setLayoutParams(rlParams);
-                }
-                else
-                {
-                    ViewGroup.LayoutParams rvParams = rvChat.getLayoutParams();
-                    rvParams.height = rvChat.getHeight() + (int)(2.5 * rlMessage.getHeight());
-                    rvChat.setLayoutParams(rvParams);
-
-                    RelativeLayout.LayoutParams rlParams = (RelativeLayout.LayoutParams) rlMessage.getLayoutParams();
-                    rlParams.setMargins(0, 0, 0, 2 * etMessage.getHeight() + 20);
-                    rlMessage.setLayoutParams(rlParams);
-                }
-            }
         });
     }
 

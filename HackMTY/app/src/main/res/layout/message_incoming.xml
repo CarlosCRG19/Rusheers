@@ -24,8 +24,8 @@
         android:id="@+id/ivProfileOther"
         android:layout_alignParentLeft="true"
         android:contentDescription="Other profile pic"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@mipmap/ic_launcher" />
 
     <TextView

@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/ivProfileMe"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:contentDescription="My profile pic"
         android:src="@mipmap/ic_launcher" />
