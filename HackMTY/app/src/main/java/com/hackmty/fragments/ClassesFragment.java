@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.adapters.ClassesAdapter;
 import com.hackmty.models.SchoolClass;
@@ -46,6 +47,8 @@ public class ClassesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ((MainActivity) getActivity()).showBottomNavBar();
 
         // Init class list and adapter
         classes = new ArrayList<>();

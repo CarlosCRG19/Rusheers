@@ -105,6 +105,7 @@ public class RoomsFragment extends Fragment {
     private void queryRooms(){
         ParseQuery<ClassRoom> query = ParseQuery.getQuery(ClassRoom.class);
         query.whereEqualTo(ClassRoom.KEY_CLASS, schoolClass);
+        query.include("users");
         query.findInBackground(new FindCallback<ClassRoom>() {
             @Override
             public void done(List<ClassRoom> objects, ParseException e) {
