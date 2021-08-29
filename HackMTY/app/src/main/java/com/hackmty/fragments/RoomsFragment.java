@@ -5,13 +5,18 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.R;
+import com.hackmty.RoomsAdapter;
 import com.hackmty.models.Classe;
 import com.hackmty.models.ClassRoom;
 import com.parse.FindCallback;
@@ -29,6 +34,11 @@ public class RoomsFragment extends Fragment {
     private Classe classe;
 
     private List<ClassRoom> rooms;
+    private RoomsAdapter adapter;
+
+    private RecyclerView rvRooms;
+    private ImageView ivClassImage;
+    private FloatingActionButton fb;
 
     public RoomsFragment() {
         // Required empty public constructor
@@ -62,8 +72,26 @@ public class RoomsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rooms = new ArrayList<>();
+        adapter = new RoomsAdapter(getContext(), rooms);
 
+        rvRooms = view.findViewById(R.id.rvRooms);
+        ivClassImage = view.findViewById(R.id.ivClassImage);
+        fb = view.findViewById(R.id.fb);
+
+        rvRooms.setAdapter(adapter);
+        rvRooms.setLayoutManager(new LinearLayoutManager(getContext()));
         queryRooms();
+
+        setUpOnClickListeners();
+    }
+
+    private void setUpOnClickListeners(){
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
     }
 
     private void queryRooms(){
@@ -78,6 +106,7 @@ public class RoomsFragment extends Fragment {
                 }
                 rooms.clear();
                 rooms.addAll(objects);
+                adapter.notifyDataSetChanged();
             }
         });
     }
