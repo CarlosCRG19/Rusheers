@@ -157,7 +157,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 room.setHost(currentUser);
                 room.setTags(tags);
                 //room.setMusic(musicLink);
-                room.setZoom(zoomLink);
+                room.setMeetingUrl(zoomLink);
                 room.setUsers(new ArrayList<>());
                 room.saveInBackground(new SaveCallback()
                 {
@@ -174,7 +174,5 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 });
             }
         });
-
-
     }
 }

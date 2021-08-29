@@ -13,8 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hackmty.MainActivity;
 import com.hackmty.R;
+import com.hackmty.fragments.RoomsFragment;
 import com.hackmty.models.Classe;
+import com.hackmty.models.SchoolClass;
 
 import java.util.List;
 
@@ -24,10 +27,10 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
 
     // FIELDS
     private Context context;
-    private List<Classe> classes;
+    private List<SchoolClass> classes;
 
     // Empty Constructor
-    public ClassesAdapter(Context context, List<Classe> classes) {
+    public ClassesAdapter(Context context, List<SchoolClass> classes) {
         this.context = context;
         this.classes = classes;
     }
@@ -42,8 +45,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ClassesAdapter.ViewHolder holder, int position) {
         // Bind class to vh
-        //holder.bind((Classe) classes.get(position));
-        Log.i("TEST", classes.get(position).getName());
+        holder.bind(classes.get(position));
     }
 
     @Override
@@ -71,7 +73,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // Specific class
-        private Classe classe;
+        private SchoolClass classe;
         // Views from layout
         private ImageView ivClass;
         private TextView tvClassName, tvClassCode, tvProfessors;
@@ -88,18 +90,18 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
         }
 
         // Populates the views with the data from the class
-        public void bind(Classe classToBind) {
+        public void bind(SchoolClass classToBind) {
             // Set class of member variable
             classe = classToBind;
             // Set info inside views
             tvClassName.setText(classToBind.getName());
-            tvClassCode.setText(classToBind.getCode());
-            List<String> professors = classToBind.getProfessors();
-            String professorsString = "";
+            //tvClassCode.setText(classToBind.getCode());
+            //List<String> professors = classToBind.getProfessors();
+            /*String professorsString = "";
             for(String professor:professors) {
                 professorsString += professor + ", ";
             }
-            tvProfessors.setText(professorsString.substring(0, professorsString.length() - 1));
+            tvProfessors.setText(professorsString.substring(0, professorsString.length() - 1));*/
         }
 
         @Override
@@ -107,6 +109,14 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             // Create new bundle
             Bundle bundle = new Bundle();
             bundle.putParcelable(Classe.TAG, classe);
+
+            RoomsFragment roomsFragment = RoomsFragment.newInstance(classe);
+            ((MainActivity)context)
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer, roomsFragment)
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 }

@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,8 +19,8 @@ import android.widget.ImageView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.R;
 import com.hackmty.RoomsAdapter;
-import com.hackmty.models.Classe;
 import com.hackmty.models.ClassRoom;
+import com.hackmty.models.SchoolClass;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -31,7 +33,7 @@ public class RoomsFragment extends Fragment {
     private static final String TAG = "RoomsFragment";
     private static final String CLASS_PARAM = "class";
 
-    private Classe classe;
+    private SchoolClass schoolClass;
 
     private List<ClassRoom> rooms;
     private RoomsAdapter adapter;
@@ -44,7 +46,7 @@ public class RoomsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static RoomsFragment newInstance(Classe classe) {
+    public static RoomsFragment newInstance(SchoolClass classe) {
         RoomsFragment fragment = new RoomsFragment();
         Bundle args = new Bundle();
         args.putParcelable(CLASS_PARAM, classe);
@@ -56,7 +58,7 @@ public class RoomsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            classe = getArguments().getParcelable(CLASS_PARAM);
+            schoolClass = getArguments().getParcelable(CLASS_PARAM);
         }
     }
 
@@ -89,14 +91,17 @@ public class RoomsFragment extends Fragment {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                FragmentManager fm = activity.getSupportFragmentManager();
+                CreateRoomDialogFragment createRoomDialogFragment = new CreateRoomDialogFragment();
+                createRoomDialogFragment.show(fm,"");
             }
         });
     }
 
     private void queryRooms(){
         ParseQuery<ClassRoom> query = ParseQuery.getQuery(ClassRoom.class);
-        query.whereEqualTo(ClassRoom.KEY_CLASS, classe);
+        query.whereEqualTo(ClassRoom.KEY_CLASS, schoolClass);
         query.findInBackground(new FindCallback<ClassRoom>() {
             @Override
             public void done(List<ClassRoom> objects, ParseException e) {

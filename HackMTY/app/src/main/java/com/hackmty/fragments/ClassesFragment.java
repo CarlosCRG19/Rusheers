@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hackmty.R;
 import com.hackmty.adapters.ClassesAdapter;
 import com.hackmty.models.Classe;
+import com.hackmty.models.SchoolClass;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -32,7 +33,7 @@ public class ClassesFragment extends Fragment {
     private RecyclerView rvClasses;
 
     // Model to store the student's classes
-    private List<Classe> classes;
+    private List<SchoolClass> classes;
     // Adapter to control rows
     private ClassesAdapter adapter;
 
@@ -66,20 +67,22 @@ public class ClassesFragment extends Fragment {
     // Makes a query to parse DataBase and gets the classes in which the student is listed
     private void queryClasses() {
         // Specify which class we want to query
-        ParseQuery<Classe> query = ParseQuery.getQuery(Classe.class);
-        query.findInBackground(new FindCallback<Classe>() {
+        ParseQuery<SchoolClass> query = ParseQuery.getQuery(SchoolClass.class);
+        query.findInBackground(new FindCallback<SchoolClass>() {
             @Override
-            public void done(List<Classe> objects, ParseException e) {
+            public void done(List<SchoolClass> objects, ParseException e) {
                 // Check if classes were found
                 if (e != null) {
                     Log.e(TAG, "No classes found");
                 }
                 // Clear list of classes
+                //adapter.clear();
+                // Add classes to adapter
+                //adapter.addAll(objects);
+
                 classes.clear();
                 classes.addAll(objects);
-                // Add classes to adapter
                 adapter.notifyDataSetChanged();
-                //adapter.addAll(objects);
             }
         });
     }
