@@ -59,12 +59,15 @@ public class InRoomFragment2 extends Fragment {
 
         // Get room from arguments
         room = (ClassRoom) getArguments().get(ClassRoom.TAG);
-
         // Set views
         setViews(view);
         // Populate view
         populateViews();
-
+        //If chat is disabled
+        if (!room.getChatEnabled()) {
+            fbChat.setVisibility(View.INVISIBLE);
+            fbChat.setClickable(false);
+        }
         // RV setup
         members = room.getMembers();
         adapter = new UserAdapter(getContext(), members);
