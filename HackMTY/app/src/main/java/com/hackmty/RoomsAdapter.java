@@ -1,20 +1,30 @@
 package com.hackmty;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hackmty.fragments.InRoomFragment;
 import com.hackmty.models.ClassRoom;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
 public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> {
-
+    public static final String TAG = "RoomsAdapter";
     private final Context context;
     private final List<ClassRoom> rooms;
 
@@ -41,22 +51,17 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        private TextView tvRoomName;
-        private TextView tvHost;
-        private TextView tvChatEnable;
-        private TextView tvTags;
-        private TextView tvDescription;
+        private TextView tvRoomName, tvHost, tvChatEnable, tvTags, tvDescription;
+        EditText etPasscode;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            itemView.setOnClickListener(this);
             tvRoomName = itemView.findViewById(R.id.tvRoomName);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvChatEnable = itemView.findViewById(R.id.tvChatEnable);
             tvTags = itemView.findViewById(R.id.tvTags);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-
         }
 
         public void bind(ClassRoom classRoom){
@@ -70,7 +75,63 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
         @Override
         public void onClick(View view) {
+            // grab position; null check; pass in as Parcel wrapped extra
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) // position exists :)
+            {
+                ClassRoom room = rooms.get(position);
+                Log.i(TAG,"onClick room: " + room.getName());
 
+                if (room.getPasscode().isEmpty()) {
+                    openRoom(room);
+                }
+                else
+                {
+                    View editDialog = LayoutInflater.from(context).inflate(R.layout.dialog_edit, null);
+                    etPasscode = editDialog.findViewById(R.id.etDialog);
+
+                    AlertDialog dialog = new AlertDialog.Builder(context)
+                            .setTitle("enter passcode")
+                            .setMessage("room is private! please enter a passcode")
+                            .setView(editDialog)
+                            .setPositiveButton("submit", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    String passcode = etPasscode.getText().toString();
+                                    if (passcode.equals(room.getPasscode())) {
+                                        openRoom(room);
+                                    }
+                                    else
+                                        Toast.makeText(context, "passcode incorrect!", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton("cancel", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which)
+                                {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create();
+                    dialog.show();
+                }
+            }
         }
+    }
+
+    public void openRoom(ClassRoom room) {
+        InRoomFragment inRoomFragment = new InRoomFragment(room);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("room", room);
+        inRoomFragment.setArguments(bundle);
+        ((MainActivity)context)
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.flContainer, inRoomFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
