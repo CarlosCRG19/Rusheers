@@ -13,7 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hackmty.MainActivity;
 import com.hackmty.R;
+import com.hackmty.fragments.RoomsFragment;
 import com.hackmty.models.Classe;
 import com.hackmty.models.SchoolClass;
 
@@ -107,6 +109,14 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             // Create new bundle
             Bundle bundle = new Bundle();
             bundle.putParcelable(Classe.TAG, classe);
+
+            RoomsFragment roomsFragment = RoomsFragment.newInstance(classe);
+            ((MainActivity)context)
+                    .getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContainer, roomsFragment)
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 }
