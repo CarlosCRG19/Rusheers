@@ -48,7 +48,6 @@ public class CreateRoomDialogFragment extends DialogFragment {
     Toolbar toolbar;
 
     public CreateRoomDialogFragment() {
-
     }
 
     @Override
@@ -68,6 +67,10 @@ public class CreateRoomDialogFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         allTags = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("allTags"));
+        allTags.add("Math");
+        allTags.add("Fun");
+        allTags.add("English");
+
         tags = new ArrayList<>();
 
         etName = view.findViewById(R.id.etName);
