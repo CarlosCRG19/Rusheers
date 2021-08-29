@@ -1,9 +1,8 @@
-package com.hackmty;
+package com.hackmty.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,15 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hackmty.fragments.InRoomFragment;
+import com.hackmty.MainActivity;
+import com.hackmty.R;
 import com.hackmty.fragments.InRoomFragment2;
 import com.hackmty.models.ClassRoom;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import org.parceler.Parcels;
 
 import java.util.List;
 
