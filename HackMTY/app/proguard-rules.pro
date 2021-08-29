@@ -19,3 +19,4 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+dependencies { compile 'com.parse.bolts:bolts-android:1.+' compile fileTree(dir: 'libs', include: 'Parse-*.jar') }
