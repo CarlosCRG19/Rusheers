@@ -46,7 +46,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="150dp"
-            tools:text="START" />
+            android:text="INICIO" />
 
         <TextView
             android:id="@+id/tvTimer"
