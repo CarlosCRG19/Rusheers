@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvClassCode"
                 android:layout_alignStart="@+id/tvClassCode"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/open_sans_bold"
                 android:textSize="12sp"
                 android:text="@string/professors_text"/>
@@ -67,9 +68,9 @@
                 android:id="@+id/tvProfessors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/textProfessors"
+                android:layout_alignTop="@id/textProfessors"
                 android:layout_toEndOf="@id/textProfessors"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/open_sans"
                 android:textSize="12sp"
                 tools:text="Luzma, Damy, Miguel"/>
