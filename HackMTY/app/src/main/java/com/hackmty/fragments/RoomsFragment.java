@@ -30,7 +30,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomsFragment extends Fragment {
+public class RoomsFragment extends Fragment implements CreateRoomDialogFragment.CreateRoomDialogInterface {
 
     private static final String TAG = "RoomsFragment";
     private static final String CLASS_PARAM = "class";
@@ -104,7 +104,7 @@ public class RoomsFragment extends Fragment {
                 bundle.putParcelable("schoolClass", schoolClass);
                 CreateRoomDialogFragment createRoomDialogFragment = new CreateRoomDialogFragment();
                 createRoomDialogFragment.setArguments(bundle);
-                createRoomDialogFragment.show(fm,"");
+                createRoomDialogFragment.show(getChildFragmentManager(),"");
             }
         });
     }
@@ -125,6 +125,12 @@ public class RoomsFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void updateAdapter() {
+        queryRooms();
+        rvRooms.smoothScrollToPosition(rooms.size()-1);
     }
 }
 
