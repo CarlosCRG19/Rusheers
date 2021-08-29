@@ -15,8 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.RoomsAdapter;
 import com.hackmty.models.ClassRoom;
@@ -41,6 +45,7 @@ public class RoomsFragment extends Fragment {
     private RecyclerView rvRooms;
     private ImageView ivClassImage;
     private FloatingActionButton fb;
+    private TextView tvClassName;
 
     public RoomsFragment() {
         // Required empty public constructor
@@ -79,6 +84,14 @@ public class RoomsFragment extends Fragment {
         rvRooms = view.findViewById(R.id.rvRooms);
         ivClassImage = view.findViewById(R.id.ivClassImage);
         fb = view.findViewById(R.id.fb);
+        tvClassName = view.findViewById(R.id.tvClassName);
+
+        tvClassName.setText(schoolClass.getName());
+
+        Glide.with(getContext())
+                .load(schoolClass.getImage().getUrl())
+                .transform(new CenterCrop())
+                .into(ivClassImage);
 
         rvRooms.setAdapter(adapter);
         rvRooms.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -105,6 +118,7 @@ public class RoomsFragment extends Fragment {
     private void queryRooms(){
         ParseQuery<ClassRoom> query = ParseQuery.getQuery(ClassRoom.class);
         query.whereEqualTo(ClassRoom.KEY_CLASS, schoolClass);
+        query.include(ClassRoom.KEY_HOST);
         query.findInBackground(new FindCallback<ClassRoom>() {
             @Override
             public void done(List<ClassRoom> objects, ParseException e) {
@@ -117,5 +131,11 @@ public class RoomsFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        ((MainActivity)getContext()).showBottomNavBar();
     }
 }
