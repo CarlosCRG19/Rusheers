@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.R;
 import com.hackmty.adapters.RoomsAdapter;
@@ -83,7 +84,7 @@ public class RoomsFragment extends Fragment {
         rvRooms.setAdapter(adapter);
         rvRooms.setLayoutManager(new LinearLayoutManager(getContext()));
         queryRooms();
-
+        Glide.with(this).load(schoolClass.getImage().getUrl()).into(ivClassImage);
         setUpOnClickListeners();
     }
 

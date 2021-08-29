@@ -69,18 +69,17 @@
             tools:visibility="visible" />
 
         <ImageView
-            android:layout_margin="20dp"
             android:id="@+id/ivBack"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:backgroundTint="@color/white"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/ic_back"
-            android:elevation="100dp"
-            />
+            android:backgroundTint="@color/white"
+            android:elevation="100dp" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
