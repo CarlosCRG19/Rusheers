@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -44,6 +45,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener
     public static final String PARAM = "param";
     public ClassRoom room;
     CardView cvChat;
+    ImageView ivChat;
     TextView tvTitle;
     EditText etMessage;
     ImageButton ibSend;
@@ -90,6 +92,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener
         etMessage = view.findViewById(R.id.etMessage);
         ibSend = view.findViewById(R.id.ibSend);
         ibSend.setOnClickListener(this);
+        ivChat = view.findViewById(R.id.ivChat);
 
         messages = new ArrayList<>();
         rvChat = view.findViewById(R.id.rvChat);
@@ -99,6 +102,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener
         rvChat.setLayoutManager(linearLayoutManager);
         rvChat.setAdapter(adapter);
         queryMessages();
+
+        tvTitle.setText(room.getName());
 
         ParseLiveQueryClient parseLiveQueryClient = null;
         try
