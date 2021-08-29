@@ -1,9 +1,6 @@
 package com.hackmty.adapters;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +15,9 @@ import com.hackmty.Controllers.ImagesController;
 import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.fragments.RoomsFragment;
-import com.hackmty.models.Classe;
 import com.hackmty.models.SchoolClass;
 
 import java.util.List;
-
-import okio.BufferedSink;
 
 public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHolder> {
 
@@ -116,8 +110,8 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             ((MainActivity) context).hideBottomNavBar();
 
             // Create new bundle
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Classe.TAG, classe);
+            //Bundle bundle = new Bundle();
+            //bundle.putParcelable(Classe.TAG, classe);
 
             RoomsFragment roomsFragment = RoomsFragment.newInstance(classe);
             ((MainActivity)context)

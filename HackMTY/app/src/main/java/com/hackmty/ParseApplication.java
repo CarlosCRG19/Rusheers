@@ -2,11 +2,9 @@ package com.hackmty;
 
 import android.app.Application;
 
-import com.hackmty.models.Classe;
 import com.hackmty.models.Message;
 import com.hackmty.models.ClassRoom;
 import com.hackmty.models.SchoolClass;
-import com.parse.BuildConfig;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
