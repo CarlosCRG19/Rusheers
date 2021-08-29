@@ -4,4 +4,6 @@
     <string name="professors_text">Professors: </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="take_picture">Tomar Foto</string>
+    <string name="submit">Post</string>
 </resources>

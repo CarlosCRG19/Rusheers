@@ -29,7 +29,7 @@ public class InRoomFragment2 extends Fragment {
 
     // VIEWS
     private TextView tvRoomName, tvDescription, tvRoomUrl, tvMembers;
-    private FloatingActionButton fbTimer;
+    private FloatingActionButton fbTimer, fbNotes;
     private RecyclerView rvMembers;
     private FrameLayout infoContainer;
 
@@ -71,19 +71,7 @@ public class InRoomFragment2 extends Fragment {
         rvMembers.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvMembers.setAdapter(adapter);
 
-        fbTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                infoContainer.setVisibility(View.VISIBLE);
-                TimerFragment timerFragment = new TimerFragment(room, getActivity());
-
-                getChildFragmentManager()
-                        .beginTransaction()
-                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
-                        .replace(R.id.optionContainer, timerFragment)
-                        .commit();
-            }
-        });
+        setListeners();
     }
 
     // VIEW METHODS
@@ -97,6 +85,7 @@ public class InRoomFragment2 extends Fragment {
         // Members recycler view
         rvMembers = view.findViewById(R.id.rvMembers);
         fbTimer = view.findViewById(R.id.fbTimer);
+        fbNotes = view.findViewById(R.id.fbNotes);
         infoContainer = view.findViewById(R.id.optionContainer);
     }
 
@@ -108,6 +97,38 @@ public class InRoomFragment2 extends Fragment {
         // Members views
         String membersSize = String.valueOf(room.getMembers().size());
         tvMembers.setText(membersSize);
+    }
+
+    private void setListeners() {
+        fbNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create bundle to pass room
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(ClassRoom.TAG, room);
+                // Create new notes fragment
+                NotesFragment fragment = new NotesFragment();
+                fragment.setArguments(bundle);
+                // Make transaction
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flContainer, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        fbTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                infoContainer.setVisibility(View.VISIBLE);
+                TimerFragment timerFragment = new TimerFragment(room, getActivity());
+
+                getChildFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
+                        .replace(R.id.optionContainer, timerFragment)
+                        .commit();
+            }
+        });
     }
 }
 

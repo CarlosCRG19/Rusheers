@@ -11,4 +11,7 @@
     <color name="blue">#1877F2</color>
     <color name="outgoing">#59A2DC</color>
     <color name="message">#6C6C6C</color>
+    <color name="gray">#8C8C94</color>
+    <color name="light_gray">#F5F5F5</color>
+
 </resources>
