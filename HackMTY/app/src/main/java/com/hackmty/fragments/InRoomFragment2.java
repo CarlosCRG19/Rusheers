@@ -72,20 +72,6 @@ public class InRoomFragment2 extends Fragment {
         adapter = new UserAdapter(getContext(), members);
         rvMembers.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvMembers.setAdapter(adapter);
-
-        fbTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                infoContainer.setVisibility(View.VISIBLE);
-                TimerFragment timerFragment = new TimerFragment(room, getActivity());
-
-                getChildFragmentManager()
-                        .beginTransaction()
-                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
-                        .replace(R.id.optionContainer, timerFragment)
-                        .commit();
-            }
-        });
     }
 
     // VIEW METHODS
@@ -118,6 +104,19 @@ public class InRoomFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 openChat();
+            }
+        });
+        fbTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                infoContainer.setVisibility(View.VISIBLE);
+                TimerFragment timerFragment = new TimerFragment(room, getActivity());
+
+                getChildFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
+                        .replace(R.id.optionContainer, timerFragment)
+                        .commit();
             }
         });
     }
