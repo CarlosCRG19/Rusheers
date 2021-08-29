@@ -65,7 +65,21 @@ dependencies {
     implementation "com.google.android.material:material:1.4.0"
     implementation "com.airbnb.android:lottie:3.4.0"
     implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0' // for Parse Live Queries
+    implementation files('../libs/spotify-app-remote-release-0.7.2.aar')
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC3'
+    implementation 'me.relex:circleindicator:2.1.6'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation files('../libs/android-auth-1.2.5')
+    implementation "com.spotify.android:auth:1.2.5"
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.android.volley:volley:1.2.0'
+    //noinspection GradleCompatible
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.github.zeeshan5422:Material-MultiSelection-Spinner:1.0'
+    implementation 'com.github.davidmigloz:drag-to-close:1.0.0'
+
+
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 }
