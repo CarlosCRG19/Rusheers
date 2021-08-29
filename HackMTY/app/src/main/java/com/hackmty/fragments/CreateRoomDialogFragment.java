@@ -157,6 +157,14 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 ClassRoom room = new ClassRoom();
                 room.setClasse(schoolClass);
                 room.setHost(ParseUser.getCurrentUser());
+
+
+                //room.add("users", ParseUser.getCurrentUser());
+
+                List<ParseUser> users = new ArrayList<>();
+                users.add(ParseUser.getCurrentUser());
+                room.setUsers(users);
+
                 room.setName(name);
                 room.setDescription(description);
                 room.setPasscode(passcode);
@@ -165,7 +173,6 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 room.setTags(tags);
                 //room.setMusic(musicLink);
                 room.setMeetingUrl(meetingUrl);
-                room.setUsers(new ArrayList<>());
                 room.saveInBackground(new SaveCallback()
                 {
                     @Override
@@ -177,6 +184,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                             return;
                         }
                         Log.i(TAG, "room created successfully!");
+                        dismiss();
                     }
                 });
             }

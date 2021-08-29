@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.R;
 import com.hackmty.RoomsAdapter;
@@ -80,6 +82,11 @@ public class RoomsFragment extends Fragment {
         ivClassImage = view.findViewById(R.id.ivClassImage);
         fb = view.findViewById(R.id.fb);
 
+        Glide.with(getContext())
+                .load(schoolClass.getImage().getUrl())
+                .transform(new CenterCrop())
+                .into(ivClassImage);
+
         rvRooms.setAdapter(adapter);
         rvRooms.setLayoutManager(new LinearLayoutManager(getContext()));
         queryRooms();
@@ -105,6 +112,7 @@ public class RoomsFragment extends Fragment {
     private void queryRooms(){
         ParseQuery<ClassRoom> query = ParseQuery.getQuery(ClassRoom.class);
         query.whereEqualTo(ClassRoom.KEY_CLASS, schoolClass);
+        query.include(ClassRoom.KEY_HOST);
         query.findInBackground(new FindCallback<ClassRoom>() {
             @Override
             public void done(List<ClassRoom> objects, ParseException e) {

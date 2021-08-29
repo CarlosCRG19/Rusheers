@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.adapters.UserAdapter;
@@ -26,6 +27,7 @@ public class InRoomFragment2 extends Fragment {
     // VIEWS
     private TextView tvRoomName, tvDescription, tvRoomUrl, tvMembers;
     private RecyclerView rvMembers;
+    private FloatingActionButton fbChat;
 
     // Variables for members RV
     private List<ParseUser> members;
@@ -55,6 +57,7 @@ public class InRoomFragment2 extends Fragment {
         setViews(view);
         // Populate view
         populateViews();
+        setUpOnClickListeners();
 
         // RV setup
         members = room.getMembers();
@@ -74,6 +77,7 @@ public class InRoomFragment2 extends Fragment {
         tvDescription = view.findViewById(R.id.tvDescription);
         // Members recycler view
         rvMembers = view.findViewById(R.id.rvMembers);
+        fbChat = view.findViewById(R.id.fbChat);
     }
 
     private void populateViews() {
@@ -84,6 +88,26 @@ public class InRoomFragment2 extends Fragment {
         // Members views
         String membersSize = String.valueOf(room.getMembers().size());
         tvMembers.setText(membersSize);
+    }
+
+    private void setUpOnClickListeners(){
+        fbChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openChat();
+            }
+        });
+    }
+
+    private void openChat(){
+        ChatFragment chatFragment = ChatFragment.newInstance(room);
+
+        ((MainActivity)getContext())
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.flContainer, chatFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
 
