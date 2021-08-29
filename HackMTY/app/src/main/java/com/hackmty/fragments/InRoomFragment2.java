@@ -57,14 +57,19 @@ public class InRoomFragment2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ((MainActivity) getActivity()).hideBottomNavBar();
+
         // Get room from arguments
         room = (ClassRoom) getArguments().get(ClassRoom.TAG);
-
         // Set views
         setViews(view);
         // Populate view
         populateViews();
-
+        //If chat is disabled
+        if (!room.getChatEnabled()) {
+            fbChat.setVisibility(View.INVISIBLE);
+            fbChat.setClickable(false);
+        }
         // RV setup
         members = room.getMembers();
         adapter = new UserAdapter(getContext(), members);
