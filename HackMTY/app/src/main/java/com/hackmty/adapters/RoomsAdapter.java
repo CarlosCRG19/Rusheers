@@ -3,18 +3,22 @@ package com.hackmty.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.fragments.InRoomFragment2;
@@ -54,6 +58,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView tvRoomName, tvHost, tvChatEnable, tvTags, tvDescription;
+        private ImageView ivLocked;
         EditText etPasscode;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +69,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             tvChatEnable = itemView.findViewById(R.id.tvChatEnable);
             tvTags = itemView.findViewById(R.id.tvTags);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivLocked = itemView.findViewById(R.id.ivLocked);
         }
 
         public void bind(ClassRoom classRoom){
@@ -73,6 +79,14 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            if(!classRoom.getPasscode().isEmpty()) {
+                Glide.with(context).load(R.drawable.ic_round_lock).into(ivLocked);
+                ivLocked.setVisibility(ImageView.VISIBLE);
+            }
+            else {
+                ivLocked.setVisibility(ImageView.INVISIBLE);
+            }
+
             String chatEnable = classRoom.getChatEnabled()?"enable":"unable";
             tvChatEnable.setText(chatEnable);
             tvTags.setText(classRoom.getTags().toString());
