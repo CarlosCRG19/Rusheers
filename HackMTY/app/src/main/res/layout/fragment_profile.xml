@@ -128,7 +128,8 @@
                     style="@style/centreLocatorCardDesign"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginBottom="50dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -151,28 +152,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
                 </androidx.cardview.widget.CardView>
-
-
             </LinearLayout>
 
-            <FrameLayout
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/framelayoudid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="150dp">
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabEditProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="40dp"
-                    app:layout_anchor="@id/framelayoudid"
-                    app:layout_anchorGravity="right"
-                    app:fabSize="normal" />
-<!--                    android:src="@drawable/ic_baseline_create_24"-->
-
-            </FrameLayout>
         </RelativeLayout>
 </ScrollView>
