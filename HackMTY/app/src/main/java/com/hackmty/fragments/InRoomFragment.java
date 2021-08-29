@@ -90,7 +90,7 @@ public class InRoomFragment extends Fragment {
         }
         tvUsers.setText("in room: " + usernames.toString());
         tvDescription.setText(room.getDescription());
-        tvLink.setText(room.getZoom());
+        tvLink.setText(room.getMeetingUrl());
 
         PageAdapter pAdapter = new PageAdapter(getActivity(), room);
         viewPager.setAdapter(pAdapter);
