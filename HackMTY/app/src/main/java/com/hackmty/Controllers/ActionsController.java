@@ -35,13 +35,6 @@ public class ActionsController {
      * @param email user's email
      * @param photoFile user's profile photoFile
      * @param photo user's profile photo
-     * @param description user's description
-     * @param placeId user's placeId
-     * @param placeName user's placeName
-     * @param placeAddress user's placeAddress
-     * @param placeLat user's place Latitude
-     * @param placeLng user's place Longitude
-     * @param generalLocation user's general location
      */
     public static void setUserValues(ParseUser user, String name, String username, String password,
                                      String email, File photoFile, ParseFile photo) {
