@@ -1,5 +1,7 @@
 package com.hackmty;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,9 +9,12 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hackmty.fragments.ClassesFragment;
+import com.hackmty.fragments.CreateRoomDialogFragment;
 import com.hackmty.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Navigation component
     private BottomNavigationView bottomNavigationView;
-
+    Button buttonTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Object responsible of adding, removing or replacing Fragments in the stack
         FragmentManager fragmentManager = getSupportFragmentManager();
+        buttonTest = findViewById(R.id.buttonTest);
 
         // Assign bottom navigation bar from layout
         bottomNavigationView = findViewById(R.id.bnvMenu);
@@ -49,5 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Use first element as default
         bottomNavigationView.setSelectedItemId(R.id.action_main);
+        buttonTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CreateRoomDialogFragment createRoomDialogFragment = new CreateRoomDialogFragment();
+                createRoomDialogFragment.show(fragmentManager,"fragment_rent_item");
+            }
+        });
     }
 }

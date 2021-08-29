@@ -10,7 +10,7 @@
         android:id="@+id/ivClassImage"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@tools:sample/avatars" />
+ />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRooms"
