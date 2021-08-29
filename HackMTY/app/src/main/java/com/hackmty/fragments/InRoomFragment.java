@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.davidmiguel.dragtoclose.DragToClose;
 import com.google.android.material.tabs.TabLayout;
 import com.hackmty.R;
 import com.hackmty.models.Room;
