@@ -1,5 +1,7 @@
 package com.hackmty.adapters;
 
+import static com.hackmty.Controllers.ImagesController.openImage;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.hackmty.R;
+import com.hackmty.models.User;
 import com.parse.ParseFile;
 
 import org.parceler.Parcels;
@@ -68,6 +71,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         // If the post is clicked, a detail view is launched in which the user can see specific details for this post
         @Override
         public void onClick(View v) {
+                String photoUrl = notes.get(getAdapterPosition()).getUrl();
+                openImage(photoUrl, context, ivNote);
             }
         }
 
