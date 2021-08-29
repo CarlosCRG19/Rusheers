@@ -40,7 +40,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         return rooms.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tvRoomName;
         private TextView tvHost;
@@ -60,13 +60,16 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         }
 
         public void bind(ClassRoom classRoom){
-
             tvRoomName.setText(classRoom.getName());
             tvHost.setText(classRoom.getHost().getUsername());
             String chatEnable = classRoom.getChatEnabled()?"enable":"unable";
             tvChatEnable.setText(chatEnable);
             tvTags.setText(classRoom.getTags().toString());
             tvDescription.setText(classRoom.getDescription());
+        }
+
+        @Override
+        public void onClick(View view) {
 
         }
     }
