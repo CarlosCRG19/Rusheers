@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hackmty.fragments.ClassesFragment;
 import com.hackmty.fragments.CreateRoomDialogFragment;
 import com.hackmty.fragments.ProfileFragment;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.action_main) {
                     fragment = new ClassesFragment();
                 } else {
-                    fragment = new ProfileFragment();
+                    fragment = new ProfileFragment(ParseUser.getCurrentUser());
                 }
                 // Change to selected fragment using manager
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();

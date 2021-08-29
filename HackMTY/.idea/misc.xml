@@ -7,10 +7,20 @@
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/round.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/rounded_rectangle_edittext.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/drawable/shape_curves_profile.xml" value="0.28958333333333336" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/font/.xml" value="0.17291666666666666" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_full_size_image.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_login.xml" value="0.4173913181932306" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_main.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/activity_sign_up.xml" value="0.3124287343215507" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_classes.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_create_room_dialog.xml" value="0.2754782700075322" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_in_room.xml" value="0.2086956590966153" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_profile.xml" value="0.36533333333333334" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/fragment_rooms.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_class.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/layout/item_item_image.xml" value="0.2653985507246377" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.14270833333333333" />
         <entry key="..\:/Users/ricar/Documentos/GitHub/Rusheers/HackMTY/app/src/main/res/xml/prefs.xml" value="0.14270833333333333" />
       </map>
