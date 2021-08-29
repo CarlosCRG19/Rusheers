@@ -25,6 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.hackmty.R;
 import com.hackmty.models.ClassRoom;
+import com.hackmty.models.SchoolClass;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -40,20 +41,24 @@ public class CreateRoomDialogFragment extends DialogFragment {
     public static final String TAG = "CreateActivity";
     public List<String> tags, allTags;
     List<String> createdTags, selectedTags;
-    EditText etName, etDescription, etPasscode, etTags, etMusic, etZoom;
+    EditText etName, etDescription, etPasscode, etTags, etMusic, etMeetingUrl;
     TextView tvTitle, tvTags, tvRequired;
     Switch switchChat;
     Button btnCreate;
     MultiSelectionSpinner spinner;
-    Toolbar toolbar;
+    SchoolClass schoolClass;
+
 
     public CreateRoomDialogFragment() {
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_room_dialog, container, false);
+        schoolClass = getArguments().getParcelable( "schoolClass");
+
         // Set transparent background and no title
         if (getDialog() != null && getDialog().getWindow() != null) {
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -79,7 +84,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
         etPasscode = view.findViewById(R.id.etPassword);
         etTags = view.findViewById(R.id.etTags);
         //etMusic = view.findViewById(R.id.etMusic);
-        etZoom = view.findViewById(R.id.etMeetingUrl);
+        etMeetingUrl = view.findViewById(R.id.etMeetingUrl);
         //tvTitle = view.findViewById(R.id.tvTitle);
         tvTags = view.findViewById(R.id.tvTags);
         //tvRequired = view.findViewById(R.id.tvRequired);
@@ -118,10 +123,10 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 String name = etName.getText().toString();
                 String description = etDescription.getText().toString();
                 String passcode = etPasscode.getText().toString();
-                String musicLink = etMusic.getText().toString();
-                String zoomLink = etZoom.getText().toString();;
+                //String musicLink = etMusic.getText().toString();
+                String meetingUrl = etMeetingUrl.getText().toString();;
 
-                if (name.isEmpty() || description.isEmpty() || musicLink.isEmpty())
+                if (name.isEmpty() || description.isEmpty())
                 {
                     Toast.makeText(getContext(), "required fields cannot be empty!", Toast.LENGTH_SHORT).show();
                     return;
@@ -139,7 +144,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 tags.addAll(createdTags);
                 tags.addAll(selectedTags);
 
-                createRoom(name, description, passcode, chat, currentUser, tags, musicLink, zoomLink);
+                createRoom(name, description, passcode, chat, currentUser, tags, meetingUrl);
                 RoomsFragment roomsFragment = new RoomsFragment();
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.flContainer, roomsFragment);
@@ -147,9 +152,11 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 transaction.commit();
             }
 
-            private void createRoom(String name, String description, String passcode, Boolean chat, ParseUser currentUser, List<String> tags, String musicLink, String zoomLink)
+            private void createRoom(String name, String description, String passcode, Boolean chat, ParseUser currentUser, List<String> tags, String meetingUrl)
             {
                 ClassRoom room = new ClassRoom();
+                room.setClasse(schoolClass);
+                room.setHost(ParseUser.getCurrentUser());
                 room.setName(name);
                 room.setDescription(description);
                 room.setPasscode(passcode);
@@ -157,7 +164,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 room.setHost(currentUser);
                 room.setTags(tags);
                 //room.setMusic(musicLink);
-                room.setMeetingUrl(zoomLink);
+                room.setMeetingUrl(meetingUrl);
                 room.setUsers(new ArrayList<>());
                 room.saveInBackground(new SaveCallback()
                 {

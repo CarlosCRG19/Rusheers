@@ -93,7 +93,10 @@ public class RoomsFragment extends Fragment {
             public void onClick(View v) {
                 AppCompatActivity activity = (AppCompatActivity) getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("schoolClass", schoolClass);
                 CreateRoomDialogFragment createRoomDialogFragment = new CreateRoomDialogFragment();
+                createRoomDialogFragment.setArguments(bundle);
                 createRoomDialogFragment.show(fm,"");
             }
         });
