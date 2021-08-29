@@ -36,6 +36,9 @@ public class InRoomFragment2 extends Fragment {
 
     // Empty Constructor
     public InRoomFragment2() {};
+    public InRoomFragment2(ClassRoom room) {
+        this.room = room;
+    }
 
     @Nullable
     @Override

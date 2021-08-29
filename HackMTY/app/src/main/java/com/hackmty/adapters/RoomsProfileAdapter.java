@@ -1,6 +1,7 @@
 package com.hackmty.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.fragments.InRoomFragment;
+import com.hackmty.fragments.InRoomFragment2;
 import com.hackmty.fragments.RoomsFragment;
 import com.hackmty.models.ClassRoom;
 import com.parse.ParseFile;
@@ -91,11 +94,16 @@ public class RoomsProfileAdapter extends RecyclerView.Adapter<RoomsProfileAdapte
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                AppCompatActivity activity = (AppCompatActivity) context;
-                Fragment fragment;
-                fragment = new InRoomFragment(rooms.get(position));
-                ((AppCompatActivity) context).getSupportFragmentManager();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, fragment).commit();
+                InRoomFragment2 inRoomFragment = new InRoomFragment2();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(ClassRoom.TAG, rooms.get(position));
+                inRoomFragment.setArguments(bundle);
+                ((MainActivity)context)
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flContainer, inRoomFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         }
     }
