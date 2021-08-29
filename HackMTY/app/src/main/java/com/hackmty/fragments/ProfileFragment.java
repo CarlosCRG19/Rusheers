@@ -28,6 +28,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.LoginActivity;
+import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.adapters.RoomsProfileAdapter;
 import com.hackmty.models.ClassRoom;
@@ -70,6 +71,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ((MainActivity) getActivity()).showBottomNavBar();
+
         //Get references
         ivProfileImage = view.findViewById(R.id.ivProfileImage);
         tvName = view.findViewById(R.id.tvName);
