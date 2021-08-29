@@ -75,7 +75,12 @@ public class CreateRoomDialogFragment extends DialogFragment {
         allTags = new ArrayList<>();
         allTags.add("Math");
         allTags.add("Fun");
-        allTags.add("English");
+        allTags.add("Languages");
+        allTags.add("Fast");
+        allTags.add("Slow");
+        allTags.add("Begginers");
+        allTags.add("Advanced");
+        allTags.add("Friends");
 
         tags = new ArrayList<>();
 
