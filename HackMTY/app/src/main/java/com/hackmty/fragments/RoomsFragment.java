@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hackmty.R;
-import com.hackmty.RoomsAdapter;
+import com.hackmty.adapters.RoomsAdapter;
 import com.hackmty.models.ClassRoom;
 import com.hackmty.models.SchoolClass;
 import com.parse.FindCallback;

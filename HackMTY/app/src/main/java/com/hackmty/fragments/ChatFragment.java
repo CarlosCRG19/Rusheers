@@ -21,8 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
-import com.hackmty.ChatAdapter;
 import com.hackmty.R;
+import com.hackmty.adapters.ChatAdapter;
 import com.hackmty.models.ClassRoom;
 import com.hackmty.models.Message;
 import com.parse.FindCallback;
