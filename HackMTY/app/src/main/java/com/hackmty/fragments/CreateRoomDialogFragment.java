@@ -66,7 +66,8 @@ public class CreateRoomDialogFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        allTags = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("allTags"));
+        //allTags = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("allTags"));
+        allTags = new ArrayList<>();
         allTags.add("Math");
         allTags.add("Fun");
         allTags.add("English");
@@ -155,7 +156,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 room.setChatEnabled(chat);
                 room.setHost(currentUser);
                 room.setTags(tags);
-                room.setMusic(musicLink);
+                //room.setMusic(musicLink);
                 room.setZoom(zoomLink);
                 room.setUsers(new ArrayList<>());
                 room.saveInBackground(new SaveCallback()
