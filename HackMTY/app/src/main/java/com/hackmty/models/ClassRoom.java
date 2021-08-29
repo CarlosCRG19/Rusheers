@@ -16,8 +16,7 @@ public class ClassRoom extends ParseObject
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_PASSCODE = "passcode";
     public static final String KEY_CHAT = "chatEnabled";
-    public static final String KEY_MUSIC = "music";
-    public static final String KEY_ZOOM = "zoom";
+    public static final String KEY_MEETING = "meetingUrl";
     public static final String KEY_TAGS = "tags";
     public static final String KEY_USERS = "users";
     public static final String KEY_CLASS = "classname";
@@ -39,17 +38,14 @@ public class ClassRoom extends ParseObject
     public Boolean getChatEnabled() { return getBoolean(KEY_CHAT); }
     public void setChatEnabled(Boolean chat) { put(KEY_CHAT, chat); }
 
-    public String getMusic() { return getString(KEY_MUSIC); }
-    public void setMusic(String music) { put(KEY_MUSIC, music); }
-
-    public String getZoom() { return getString(KEY_ZOOM); }
-    public void setZoom(String zoom) { put(KEY_ZOOM, zoom); }
+    public String getZoom() { return getString(KEY_MEETING); }
+    public void setZoom(String meeting) { put(KEY_MEETING, meeting); }
 
     public List<String> getTags() { return getList(KEY_TAGS); }
     public void setTags(List<String> tags) { put(KEY_TAGS, tags); }
 
-    public List<User> getUsers() { return getList(KEY_USERS); }
-    public void setUsers(List<User> users) { put(KEY_USERS, users); }
+    public List<ParseUser> getUsers() { return getList(KEY_USERS); }
+    public void setUsers(List<ParseUser> users) { put(KEY_USERS, users); }
 
     public Classe getClasse(){
         return (Classe) getParseObject(KEY_CLASS);

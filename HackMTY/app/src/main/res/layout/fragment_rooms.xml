@@ -12,6 +12,7 @@
         android:layout_height="250dp"
  />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRooms"
         android:layout_below="@+id/ivClassImage"
