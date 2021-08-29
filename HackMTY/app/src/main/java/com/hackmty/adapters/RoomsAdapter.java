@@ -68,7 +68,11 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
         public void bind(ClassRoom classRoom){
             tvRoomName.setText(classRoom.getName());
-            tvHost.setText(classRoom.getHost().getUsername());
+            try {
+                tvHost.setText(classRoom.getHost().fetchIfNeeded().getUsername());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             String chatEnable = classRoom.getChatEnabled()?"enable":"unable";
             tvChatEnable.setText(chatEnable);
             tvTags.setText(classRoom.getTags().toString());
