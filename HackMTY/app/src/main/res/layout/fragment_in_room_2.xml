@@ -168,23 +168,22 @@
     </com.davidmiguel.dragtoclose.DragToClose>
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rlMain"
         android:layout_alignStart="@+id/rlMain"
         android:layout_alignEnd="@+id/rlMain"
         android:layout_marginTop="24dp"
+        android:gravity="center|bottom"
         android:paddingHorizontal="24dp"
-        android:paddingVertical="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|bottom">
+        android:paddingVertical="10dp">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbTimer"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:src="@drawable/ic_timer"
-            app:tint="@color/white"
-            />
+            app:tint="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbNotes"
@@ -192,19 +191,27 @@
             android:layout_height="55dp"
             android:layout_centerInParent="true"
             android:src="@drawable/ic_notes"
-            app:tint="@color/white"
-            />
+            app:tint="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbChat"
-            android:layout_alignParentEnd="true"
             android:layout_width="55dp"
             android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
             android:src="@drawable/ic_chat"
-            app:tint="@color/white"
-            />
-
-
+            app:tint="@color/white" />
     </RelativeLayout>
 
+    <FrameLayout
+        android:elevation="100dp"
+        android:id="@+id/optionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"/>
 </RelativeLayout>

@@ -82,11 +82,19 @@ public class InRoomFragment extends Fragment {
         //updateUsers();
 
         tvTitle.setText(room.getName());
-        tvHost.setText("host: " + room.getHost().getUsername());
+        try {
+            tvHost.setText("host: " + room.getHost().fetchIfNeeded().getUsername());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         HashSet<String> usernames = new HashSet<>();
         for (ParseUser user : room.getUsers())
         {
-            usernames.add(user.getUsername());
+            try {
+                usernames.add(user.fetchIfNeeded().getUsername());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         tvUsers.setText("in room: " + usernames.toString());
         tvDescription.setText(room.getDescription());
