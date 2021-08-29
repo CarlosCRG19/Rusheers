@@ -29,7 +29,7 @@ public class InRoomFragment2 extends Fragment {
 
     // VIEWS
     private TextView tvRoomName, tvDescription, tvRoomUrl, tvMembers;
-    private FloatingActionButton fbTimer, fbNotes;
+    private FloatingActionButton fbTimer, fbNotes, fbChat;
     private RecyclerView rvMembers;
     private FrameLayout infoContainer;
 
@@ -86,6 +86,7 @@ public class InRoomFragment2 extends Fragment {
         rvMembers = view.findViewById(R.id.rvMembers);
         fbTimer = view.findViewById(R.id.fbTimer);
         fbNotes = view.findViewById(R.id.fbNotes);
+        fbChat = view.findViewById(R.id.fbChat);
         infoContainer = view.findViewById(R.id.optionContainer);
     }
 
@@ -122,10 +123,26 @@ public class InRoomFragment2 extends Fragment {
                 infoContainer.setVisibility(View.VISIBLE);
                 TimerFragment timerFragment = new TimerFragment(room, getActivity());
 
-                getChildFragmentManager()
+                ((MainActivity)getContext())
+                        .getSupportFragmentManager()
                         .beginTransaction()
                         .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
-                        .replace(R.id.optionContainer, timerFragment)
+                        .add(R.id.flContainer, timerFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        fbChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChatFragment chatFragment = ChatFragment.newInstance(room);
+
+                ((MainActivity)getContext())
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.bottom_up_fragment, R.anim.bottom_down_fragment)
+                        .add(R.id.flContainer, chatFragment)
+                        .addToBackStack(null)
                         .commit();
             }
         });
