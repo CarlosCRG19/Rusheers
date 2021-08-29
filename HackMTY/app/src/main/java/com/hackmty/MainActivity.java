@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hackmty.fragments.ClassesFragment;
 import com.hackmty.fragments.CreateRoomDialogFragment;
@@ -54,4 +55,18 @@ public class MainActivity extends AppCompatActivity {
         // Use first element as default
         bottomNavigationView.setSelectedItemId(R.id.action_main);
     }
+
+
+    //-- OTHER METHODS --//
+
+    public void showBottomNavBar() {
+        // Change visibility of toolbar
+        bottomNavigationView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideBottomNavBar() {
+        // Change visibility of toolbar
+        bottomNavigationView.setVisibility(View.GONE);
+    }
+
 }

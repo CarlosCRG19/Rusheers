@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.hackmty.Controllers.ImagesController;
 import com.hackmty.MainActivity;
 import com.hackmty.R;
 import com.hackmty.fragments.RoomsFragment;
@@ -89,17 +91,24 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             classe = classToBind;
             // Set info inside views
             tvClassName.setText(classToBind.getName());
-            //tvClassCode.setText(classToBind.getCode());
-            //List<String> professors = classToBind.getProfessors();
-            /*String professorsString = "";
+            tvClassCode.setText(classToBind.getCode());
+            List<String> professors = classToBind.getProfessors();
+            String professorsString = "";
             for(String professor:professors) {
                 professorsString += professor + ", ";
             }
-            tvProfessors.setText(professorsString.substring(0, professorsString.length() - 1));*/
+            tvProfessors.setText(professorsString.substring(0, professorsString.length() - 2));
+            Glide.with(context)
+                    .load(classToBind.getImage().getUrl())
+                    .into(ivClass);
         }
 
         @Override
         public void onClick(View v) {
+
+            // Hide navigation view
+            ((MainActivity) context).hideBottomNavBar();
+
             // Create new bundle
             //Bundle bundle = new Bundle();
             //bundle.putParcelable(Classe.TAG, classe);
