@@ -1,9 +1,8 @@
-package com.hackmty;
+package com.hackmty.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,15 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hackmty.fragments.InRoomFragment;
+import com.hackmty.MainActivity;
+import com.hackmty.R;
 import com.hackmty.fragments.InRoomFragment2;
 import com.hackmty.models.ClassRoom;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -71,7 +68,11 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
         public void bind(ClassRoom classRoom){
             tvRoomName.setText(classRoom.getName());
-            tvHost.setText(classRoom.getHost().getUsername());
+            try {
+                tvHost.setText(classRoom.getHost().fetchIfNeeded().getUsername());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             String chatEnable = classRoom.getChatEnabled()?"enable":"unable";
             tvChatEnable.setText(chatEnable);
             tvTags.setText(classRoom.getTags().toString());
@@ -87,7 +88,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 ClassRoom room = rooms.get(position);
                 Log.i(TAG,"onClick room: " + room.getName());
 
-                if (room.getPasscode().isEmpty() || room.getUsers().contains(ParseUser.getCurrentUser())) {
+                if (room.getPasscode().isEmpty() || room.getUsers().contains(ParseUser.getCurrentUser()) || room.getHost().equals(ParseUser.getCurrentUser())) {
                     openRoom(room);
                 }
                 else
