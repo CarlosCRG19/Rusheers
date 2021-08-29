@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.CreateRoomDialogFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/centreLocatorCardDesign"
+        app:cardCornerRadius="16dp"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical"
+                android:fontFamily="@font/open_sans"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Create Room"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_gravity="center"
+                    android:textColor="#00051f"
+                    android:textSize="17dp" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:id="@+id/tilRoomName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:startIconDrawable="@drawable/ic_baseline_person_24"
+                    android:hint="ROOM NAME">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etRoomName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans"
+                        android:inputType="text"
+                        android:textSize="13sp"></com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_baseline_person_24"
+                    android:hint="NAME">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:fontFamily="@font/open_sans"
+                        android:textSize="13sp">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:id="@+id/tilDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:endIconMode="clear_text"
+                    android:hint="DESCRIPTION"
+                    app:counterEnabled="true"
+                    app:startIconDrawable="@drawable/ic_baseline_short_text_24"
+                    app:counterMaxLength="100">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:textSize="13sp"
+                        android:inputType="text"
+                        android:fontFamily="@font/open_sans"
+                        android:layout_height="wrap_content">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:id="@+id/tilPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_baseline_lock_24"
+                    android:hint="PASSWORD">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:inputType="textPassword"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/open_sans"
+                        android:layout_height="wrap_content">
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:id="@+id/tilMeetingUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:startIconDrawable="@drawable/ic_baseline_link_24"
+                    android:hint="MEETING URL">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMeetingUrl"
+                        android:layout_width="match_parent"
+                        android:inputType="textEmailAddress"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/open_sans"
+                        android:layout_height="wrap_content">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etMeetingUrl"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="tags"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTags"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <com.zeeshan.material.multiselectionspinner.MultiSelectionSpinner
+                    android:id="@+id/multiSelectSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="@drawable/rounded_rectangle_edittext"
+                    android:ems="10"
+                    android:hint="choose tags"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switchChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linearLayout"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="enable chat?* "
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/etTags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_rectangle_edittext"
+                    android:ems="10"
+                    android:hint="create tags"
+                    android:inputType="text"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#a9b0c3" />
+
+                <Button
+                    android:id="@+id/btnCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:text="Create Room"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

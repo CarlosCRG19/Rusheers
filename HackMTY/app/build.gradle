@@ -51,4 +51,8 @@ dependencies {
     //For scaling images
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
     implementation 'com.zolad:zoominimageview:1.0.0'
+    implementation 'com.github.zeeshan5422:Material-MultiSelection-Spinner:1.0'
+    //parceler
+    implementation 'org.parceler:parceler-api:1.1.13'
+    annotationProcessor 'org.parceler:parceler:1.1.13'
 }
