@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">HackMTY</string>
     <string name="my_class_text">Mis Clases</string>
-    <string name="professors_text">Profesores: </string>
 </resources>

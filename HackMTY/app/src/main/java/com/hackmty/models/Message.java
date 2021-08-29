@@ -18,6 +18,6 @@ public class Message extends ParseObject
     public void setBody(String body) { put(KEY_BODY, body); }
 
     public ParseObject getRoom() { return getParseObject(KEY_ROOM); }
-    public void setRoom(Room room) { put(KEY_ROOM, room); }
+    public void setRoom(ClassRoom room) { put(KEY_ROOM, room); }
 }
 
