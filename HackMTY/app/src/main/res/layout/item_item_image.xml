@@ -11,6 +11,7 @@
         android:scaleType="centerCrop"
         android:layout_margin="8dp"
         android:transitionName="image"
+        android:foreground="?android:attr/selectableItemBackground"
         tools:srcCompat="@tools:sample/avatars">
     </ImageView>
 </RelativeLayout>

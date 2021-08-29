@@ -18,6 +18,8 @@
         android:paddingBottom="4dp"
         android:text="Johny Lindsey"
         android:fontFamily="@font/open_sans_light"
+        android:textColor="@color/dark_grey"
+        android:textStyle="italic"
         android:textSize="13sp"/>
 
     <ImageView
@@ -39,6 +41,8 @@
         android:elevation="2dp"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/gray"
         android:textSize="14sp"
         tools:text="someone else's message" />
 

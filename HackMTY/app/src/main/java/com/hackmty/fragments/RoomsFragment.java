@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
@@ -30,7 +31,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomsFragment extends Fragment {
+public class RoomsFragment extends Fragment implements CreateRoomDialogFragment.CreateRoomDialogInterface {
 
     private static final String TAG = "RoomsFragment";
     private static final String CLASS_PARAM = "class";
@@ -41,6 +42,7 @@ public class RoomsFragment extends Fragment {
     private RoomsAdapter adapter;
 
     private RecyclerView rvRooms;
+    private TextView tvClassName;
     private ImageView ivClassImage;
     private FloatingActionButton fb;
 
@@ -78,6 +80,8 @@ public class RoomsFragment extends Fragment {
         rooms = new ArrayList<>();
         adapter = new RoomsAdapter(getContext(), rooms);
 
+        tvClassName = view.findViewById(R.id.tvClassName);
+        tvClassName.setText(schoolClass.getName());
         rvRooms = view.findViewById(R.id.rvRooms);
         ivClassImage = view.findViewById(R.id.ivClassImage);
         fb = view.findViewById(R.id.fb);
@@ -104,7 +108,7 @@ public class RoomsFragment extends Fragment {
                 bundle.putParcelable("schoolClass", schoolClass);
                 CreateRoomDialogFragment createRoomDialogFragment = new CreateRoomDialogFragment();
                 createRoomDialogFragment.setArguments(bundle);
-                createRoomDialogFragment.show(fm,"");
+                createRoomDialogFragment.show(getChildFragmentManager(),"");
             }
         });
     }
@@ -125,6 +129,12 @@ public class RoomsFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void updateAdapter() {
+        queryRooms();
+        rvRooms.smoothScrollToPosition(rooms.size()-1);
     }
 }
 

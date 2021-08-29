@@ -38,6 +38,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CreateRoomDialogFragment extends DialogFragment {
+
+    interface CreateRoomDialogInterface {
+        void updateAdapter();
+    }
+
     public static final String TAG = "CreateActivity";
     public List<String> tags, allTags;
     List<String> createdTags, selectedTags;
@@ -47,10 +52,9 @@ public class CreateRoomDialogFragment extends DialogFragment {
     Button btnCreate;
     MultiSelectionSpinner spinner;
     SchoolClass schoolClass;
-
+    CreateRoomDialogInterface listener;
 
     public CreateRoomDialogFragment() {
-
     }
 
     @Override
@@ -71,6 +75,7 @@ public class CreateRoomDialogFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        listener = (CreateRoomDialogInterface) getParentFragment();
         //allTags = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("allTags"));
         allTags = new ArrayList<>();
         allTags.add("Math");
@@ -150,11 +155,10 @@ public class CreateRoomDialogFragment extends DialogFragment {
                 tags.addAll(selectedTags);
 
                 createRoom(name, description, passcode, chat, currentUser, tags, meetingUrl);
-                RoomsFragment roomsFragment = new RoomsFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.flContainer, roomsFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                //RoomsFragment roomsFragment = new RoomsFragment();
+                //transaction.replace(R.id.flContainer, roomsFragment);
+                //transaction.addToBackStack(null);
+                //transaction.commit();
             }
 
             private void createRoom(String name, String description, String passcode, Boolean chat, ParseUser currentUser, List<String> tags, String meetingUrl)
@@ -189,7 +193,8 @@ public class CreateRoomDialogFragment extends DialogFragment {
                             return;
                         }
                         Log.i(TAG, "room created successfully!");
-                        dismiss();
+                        listener.updateAdapter();
+                        getDialog().dismiss();
                     }
                 });
             }
