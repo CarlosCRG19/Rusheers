@@ -38,17 +38,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/darkest_grey"
                 android:textSize="24sp"
                 tools:text="Matemáticas" />
+
+            <TextView
+                android:id="@+id/textCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_below="@+id/tvClassName"
+                android:textColor="@color/dark_grey"
+                android:layout_alignStart="@+id/tvClassName"
+                android:fontFamily="@font/open_sans_bold"
+                android:textSize="12sp"
+                android:text="@string/class_code_text"/>
 
             <TextView
                 android:id="@+id/tvClassCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvClassName"
-                android:layout_alignStart="@+id/tvClassName"
-                android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/gray"
+                android:layout_alignTop="@id/textCode"
+                android:layout_toEndOf="@id/textCode"
                 android:textSize="12sp"
                 android:textStyle="italic"
                 tools:text="MA1033" />
@@ -58,8 +72,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvClassCode"
-                android:layout_alignStart="@+id/tvClassCode"
-                android:layout_marginTop="4dp"
+                android:textColor="@color/dark_grey"
+                android:layout_alignStart="@+id/textCode"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/open_sans_bold"
                 android:textSize="12sp"
                 android:text="@string/professors_text"/>
