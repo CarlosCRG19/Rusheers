@@ -14,12 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackmty.R;
 import com.hackmty.adapters.ClassesAdapter;
-import com.hackmty.models.Classe;
 import com.hackmty.models.SchoolClass;
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
