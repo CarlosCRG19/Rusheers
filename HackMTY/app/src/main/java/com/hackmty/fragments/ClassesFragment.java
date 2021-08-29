@@ -75,14 +75,11 @@ public class ClassesFragment extends Fragment {
                     Log.e(TAG, "No classes found");
                 }
                 // Clear list of classes
-                //adapter.clear();
-                // Add classes to adapter
-                adapter.addAll(objects);
-                //adapter.addAll(objects);
-
                 classes.clear();
                 classes.addAll(objects);
+                // Add classes to adapter
                 adapter.notifyDataSetChanged();
+                //adapter.addAll(objects);
             }
         });
     }
