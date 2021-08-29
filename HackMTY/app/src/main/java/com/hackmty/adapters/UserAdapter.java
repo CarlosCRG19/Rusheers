@@ -87,9 +87,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             user = userToBind;
 
             // Get profile picture
-            //ParseFile profileImage = (ParseFile) user.get("profilePic");
+            // ParseFile profileImage = (ParseFile) user.get("profilePic");
             // Load Profile Picture using static method
-            //ImagesController.loadCircleImage(context, profileImage, ivUserImage);
+            // ImagesController.loadCircleImage(context, profileImage, ivUserImage);
 
         }
     }

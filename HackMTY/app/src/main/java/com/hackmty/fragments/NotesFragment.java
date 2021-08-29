@@ -82,6 +82,30 @@ public class NotesFragment extends Fragment {
         }
 
         setListeners();
+        setRefreshFeature(view);
+    }
+
+    // Lets the user refresh the profile posts swiping down on the RV
+    private void setRefreshFeature(View view) {
+        // Get view from layout
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Make query to get newest
+                roomNotes.clear();
+                roomNotes.addAll(room.getNotes());
+                adapter.notifyDataSetChanged();
+                // Hide refreshing icon
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     private void setViews(View view) {
