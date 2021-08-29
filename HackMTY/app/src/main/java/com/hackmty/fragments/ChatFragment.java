@@ -44,7 +44,6 @@ public class ChatFragment extends Fragment implements View.OnClickListener
     public static final String WEBSOCKET = "wss://studypal.b4a.io";
     public static final String PARAM = "param";
     public ClassRoom room;
-    CardView cvChat;
     ImageView ivChat;
     TextView tvTitle;
     EditText etMessage;
@@ -86,8 +85,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-
-        cvChat = view.findViewById(R.id.cvChat);
+        
         tvTitle = view.findViewById(R.id.tvTitle);
         etMessage = view.findViewById(R.id.etMessage);
         ibSend = view.findViewById(R.id.ibSend);
