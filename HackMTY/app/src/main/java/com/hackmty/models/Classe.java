@@ -6,7 +6,7 @@ import com.parse.ParseObject;
 
 import java.util.List;
 
-@ParseClassName("Class")
+@ParseClassName("Classe")
 public class Classe extends ParseObject {
 
     public static final String KEY_NAME = "className";

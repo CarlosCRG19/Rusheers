@@ -7,7 +7,7 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-@ParseClassName("Room")
+@ParseClassName("ClassRoom")
 public class ClassRoom extends ParseObject
 {
     public static final String KEY_ID = "objectId";

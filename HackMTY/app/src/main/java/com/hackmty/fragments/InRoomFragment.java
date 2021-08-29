@@ -14,27 +14,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.davidmiguel.dragtoclose.DragToClose;
+//import com.davidmiguel.dragtoclose.DragToClose;
 import com.google.android.material.tabs.TabLayout;
 import com.hackmty.R;
-import com.hackmty.models.Room;
-import com.hackmty.models.User;
+import com.hackmty.models.ClassRoom;
+//import com.hackmty.models.User;
 
 import java.util.List;
 
 public class InRoomFragment extends Fragment {
 
     public static final String TAG = "InRoomActivity";
-    public Room room;
+    public ClassRoom room;
     public ViewPager2 viewPager;
     Toolbar toolbar;
     TextView tvTitle, tvHost, tvUsers, tvDescription, tvLink;
     CardView cvTimer, cvList, cvChat, cvMusic;
     TabLayout tabLayout;
-    DragToClose dragToClose;
-    List<User> users;
+    //DragToClose dragToClose;
+    //List<User> users;
 
-    public InRoomFragment(Room room) {
+    public InRoomFragment(ClassRoom room) {
         this.room = room;
     }
 
@@ -62,6 +62,6 @@ public class InRoomFragment extends Fragment {
         cvChat = viewPager.findViewById(R.id.cvChat);
         cvMusic = viewPager.findViewById(R.id.cvMusic);
         viewPager = viewPager.findViewById(R.id.viewPager);
-        dragToClose = viewPager.findViewById(R.id.dragToClose);
+        //dragToClose = viewPager.findViewById(R.id.dragToClose);
     }
 }
