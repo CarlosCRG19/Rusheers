@@ -18,6 +18,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackmty.fragments.InRoomFragment;
 import com.hackmty.models.ClassRoom;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
 
@@ -123,6 +127,19 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     }
 
     public void openRoom(ClassRoom room) {
+        ParseUser user = ParseUser.getCurrentUser();
+        List<ParseUser> users = room.getUsers();
+
+        if(room.getHost() != user && !users.contains(user)) {
+                users.add(ParseUser.getCurrentUser());
+                room.setUsers(users);
+                room.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                    }
+                });
+        }
+
         InRoomFragment inRoomFragment = new InRoomFragment(room);
         Bundle bundle = new Bundle();
         bundle.putParcelable("room", room);
