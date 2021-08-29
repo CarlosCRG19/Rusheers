@@ -8,7 +8,7 @@ import com.parse.ParseUser;
 import java.util.List;
 
 @ParseClassName("Room")
-public class Room extends ParseObject
+public class ClassRoom extends ParseObject
 {
     public static final String KEY_ID = "objectId";
     public static final String KEY_NAME = "roomname";
@@ -20,6 +20,7 @@ public class Room extends ParseObject
     public static final String KEY_ZOOM = "zoom";
     public static final String KEY_TAGS = "tags";
     public static final String KEY_USERS = "users";
+    public static final String KEY_CLASS = "classname";
 
     public String getId() { return getString(KEY_ID); }
 
@@ -49,5 +50,12 @@ public class Room extends ParseObject
 
     public List<User> getUsers() { return getList(KEY_USERS); }
     public void setUsers(List<User> users) { put(KEY_USERS, users); }
+
+    public Classe getClasse(){
+        return (Classe) getParseObject(KEY_CLASS);
+    }
+    public void setClasse(Classe classe){
+        put(KEY_CLASS, classe);
+    }
 }
 

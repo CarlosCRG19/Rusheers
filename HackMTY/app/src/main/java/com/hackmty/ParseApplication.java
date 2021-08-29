@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.hackmty.models.Classe;
 import com.hackmty.models.Message;
-import com.hackmty.models.Room;
+import com.hackmty.models.ClassRoom;
 import com.parse.BuildConfig;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -13,7 +13,7 @@ public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         ParseObject.registerSubclass(Classe.class);
-        ParseObject.registerSubclass(Room.class);
+        ParseObject.registerSubclass(ClassRoom.class);
         ParseObject.registerSubclass(Message.class);
 
         super.onCreate();
