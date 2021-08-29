@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.hackmty.ChatAdapter;
 import com.hackmty.R;
 import com.hackmty.models.ClassRoom;
 import com.hackmty.models.Message;
@@ -29,6 +30,11 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.livequery.ParseLiveQueryClient;
+import com.parse.livequery.SubscriptionHandling;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -41,29 +47,48 @@ import me.relex.circleindicator.CircleIndicator3;
 public class ChatFragment extends Fragment implements View.OnClickListener
 {
     public static final String TAG = "ChatFragment";
+    public static final String CLASSROOM="ClassRoom";
     public static final String WEBSOCKET = "wss://studypal.b4a.io";
-    public ClassRoom room;
+
+    private ClassRoom room;
+
     CardView cvChat;
-    TextView tvTitle, tvDisabled;
+    TextView tvTitle;
     EditText etMessage;
     ImageButton ibSend;
     List<Message> messages;
     RecyclerView rvChat;
-    //ChatAdapter adapter;
+    ChatAdapter adapter;
 
-    public ChatFragment(ClassRoom room)
+    public ChatFragment()
     {
-        this.room = room;
+    }
+
+    public static ChatFragment newInstance(ClassRoom room) {
+        Bundle args = new Bundle();
+
+        args.putParcelable(CLASSROOM, room);
+
+        ChatFragment fragment = new ChatFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null){
+            this.room = getArguments().getParcelable(CLASSROOM);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.fragment_chat, container, false);
-        /*if (!room.getChatEnabled())
+        if (!room.getChatEnabled())
             return inflater.inflate(R.layout.fragment_chat_disabled, container, false);
         else
-            return inflater.inflate(R.layout.fragment_chat, container, false);*/
+            return inflater.inflate(R.layout.fragment_chat, container, false);
     }
 
     @Override
@@ -71,9 +96,8 @@ public class ChatFragment extends Fragment implements View.OnClickListener
     {
         super.onViewCreated(view, savedInstanceState);
 
-        /*cvChat = view.findViewById(R.id.cvChat);
+        cvChat = view.findViewById(R.id.cvChat);
         tvTitle = view.findViewById(R.id.tvTitle);
-        tvDisabled = view.findViewById(R.id.tvDisabled);
         etMessage = view.findViewById(R.id.etMessage);
         ibSend = view.findViewById(R.id.ibSend);
         ibSend.setOnClickListener(this);
@@ -145,7 +169,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener
                     rlMessage.setLayoutParams(rlParams);
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -194,7 +218,7 @@ public class ChatFragment extends Fragment implements View.OnClickListener
                     if (!messages.contains(message) && message.getRoom().hasSameId(room))
                         messages.add(message);
                 }
-                //adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
                 rvChat.smoothScrollToPosition(0);
             }
         });
