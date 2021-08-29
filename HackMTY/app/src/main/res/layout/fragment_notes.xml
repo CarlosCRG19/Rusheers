@@ -20,8 +20,7 @@
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:fontFamily="@font/open_sans_bold"
-            android:textSize="24sp"
-            tools:text="SUPER COOL ROOM" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 </RelativeLayout>
