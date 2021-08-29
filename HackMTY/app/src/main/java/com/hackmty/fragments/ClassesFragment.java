@@ -16,7 +16,9 @@ import com.hackmty.R;
 import com.hackmty.adapters.ClassesAdapter;
 import com.hackmty.models.Classe;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
@@ -65,7 +67,6 @@ public class ClassesFragment extends Fragment {
     private void queryClasses() {
         // Specify which class we want to query
         ParseQuery<Classe> query = ParseQuery.getQuery(Classe.class);
-        // Make query using background thread
         query.findInBackground(new FindCallback<Classe>() {
             @Override
             public void done(List<Classe> objects, ParseException e) {

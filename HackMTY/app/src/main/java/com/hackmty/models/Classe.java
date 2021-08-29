@@ -9,7 +9,7 @@ import java.util.List;
 @ParseClassName("Classe")
 public class Classe extends ParseObject {
 
-    public static final String TAG = "Class";
+    public static final String TAG = "Classe";
     public static final String KEY_NAME = "className";
     public static final String KEY_PROFESSORS = "professors";
     public static final String KEY_CODE = "code";
