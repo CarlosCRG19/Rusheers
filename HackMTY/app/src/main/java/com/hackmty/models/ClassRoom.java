@@ -38,8 +38,8 @@ public class ClassRoom extends ParseObject
     public Boolean getChatEnabled() { return getBoolean(KEY_CHAT); }
     public void setChatEnabled(Boolean chat) { put(KEY_CHAT, chat); }
 
-    public String getZoom() { return getString(KEY_MEETING); }
-    public void setZoom(String meeting) { put(KEY_MEETING, meeting); }
+    public String getMeetingUrl() { return getString(KEY_MEETING); }
+    public void setMeetingUrl(String meeting) { put(KEY_MEETING, meeting); }
 
     public List<String> getTags() { return getList(KEY_TAGS); }
     public void setTags(List<String> tags) { put(KEY_TAGS, tags); }
