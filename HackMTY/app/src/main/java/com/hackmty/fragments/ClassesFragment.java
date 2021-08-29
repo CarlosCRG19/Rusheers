@@ -3,11 +3,15 @@ package com.hackmty.fragments;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +38,8 @@ public class ClassesFragment extends Fragment {
     private List<SchoolClass> classes;
     // Adapter to control rows
     private ClassesAdapter adapter;
+    Toolbar toolbar;
+    SearchView searchView;
 
     // Empty constructor
     public ClassesFragment(){};
@@ -56,12 +62,32 @@ public class ClassesFragment extends Fragment {
 
         // Get recycler view
         rvClasses = view.findViewById(R.id.rvClasses);
+        toolbar = view.findViewById(R.id.toolbar);
         rvClasses.setLayoutManager(new LinearLayoutManager(getContext()));
         rvClasses.setAdapter(adapter);
 
         // Get classes from database
         queryClasses();
+        toolbar.inflateMenu(R.menu.menu_top);
+        toolbar.setTitle("Buscar");
+        Menu menu = toolbar.getMenu();
+        MenuItem menuItem = menu.findItem(R.id.search_icon);
+        searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Busca por nombre o codigo!");
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (classes != null) {
+                }
+                return true;
+            }
+        });
     }
 
     // Makes a query to parse DataBase and gets the classes in which the student is listed
@@ -86,5 +112,4 @@ public class ClassesFragment extends Fragment {
             }
         });
     }
-
 }
